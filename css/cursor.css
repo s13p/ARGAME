@@ -1,0 +1,22 @@
+.cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform-origin: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    transition: width 350ms ease-in-out, height 350ms ease-in-out;
+    mix-blend-mode: difference;
+    background: var(--white);
+    z-index: 1000000;
+    pointer-events: none;
+}
+
+@media screen and (max-width: 1280px) {
+    .cursor {
+        display: none;
+    }
+}
+
+/*# sourceMappingURL=cursor.css.map */

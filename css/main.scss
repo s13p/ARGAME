@@ -1,0 +1,174 @@
+@font-face {
+  font-family: 'Visby_CF_Bold';
+  src: url('/assets/fonts/VisbyCF-Bold.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Visby_CF_Medium';
+  src: url('/assets/fonts/VisbyCF-Medium.otf') format('OpenType');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Visby_CF_SemiBold';
+  src: url('/assets/fonts/VisbyCF-SemiBold.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Visby_CF_ExtraBold';
+  src: url('/assets/fonts/VisbyCF-ExtraBold.otf') format('OpenType');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Visby_CF_Regular';
+  src: url('/assets/fonts/VisbyCF-Regular.otf') format('OpenType');
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --black: rgba(19, 19, 19, 1);
+  --white: rgba(255, 255, 255, 1);
+  --blue: #2F61FF;
+  --bold: 'Visby_CF_Bold';
+  --medium: 'Visby_CF_Medium';
+  --semiBold: 'Visby_CF_SemiBold';
+  --extraBold: 'Visby_CF_ExtraBold';
+  --regular: 'Visby_CF_Regular';
+}
+
+::-moz-selection {
+  /* Code for Firefox */
+  background: var(--black);
+}
+
+::selection {
+  background: #fff;
+  // mix-blend-mode: difference;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: normal;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    font-size-adjust: auto;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 0;
+}
+
+body,
+html {
+  width: 100%;
+  overflow-x: hidden;
+  background: var(--black);
+  position: relative;
+  font-size-adjust: auto;
+}
+
+.substitute_logo {
+  position: fixed;
+  top: 36.1px;
+  left: 64px;
+  z-index: 99;
+  display: none;
+}
+
+#smooth-content {
+  width: 100%;
+}
+
+///LOADING CONTAINER
+.all_transition_page_wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 999;
+
+  .all_page_transition_shadow_wrapper {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    z-index: 800;
+    pointer-events: none;
+    overflow: hidden;
+
+    .page_shadow_wrapper_inner {
+      position: relative;
+      top: 200%;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      will-change: top;
+      background: var(--blue);
+      // transition: all 1s cubic-bezier(0,.69,1,.31);
+
+      &::before {
+        content: '';
+        position: absolute;
+        display: block;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transform: translateY(-100%);
+        background: linear-gradient(to top, rgba(#2F61FF, 1) 0%, rgba(#2F61FF, 0.738) 19%, rgba(#2F61FF, 0.541) 34%, rgba(#2F61FF, 0.002) 98.2%, rgba(#2F61FF, 0) 100%);
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        display: block;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transform: translateY(100%);
+        background: linear-gradient(to bottom, rgba(#2F61FF, 1) 0%, rgba(#2F61FF, 0.738) 19%, rgba(#2F61FF, 0.541) 34%, rgba(#2F61FF, 0.002) 98.2%, rgba(#2F61FF, 0) 100%);
+      }
+    }
+  }
+}
+
+/////Breakpoint: 755px down
+@media screen and (max-width: 988px) {
+  .substitute_logo {
+    left: 40px;
+  }
+}
+
+/////Breakpoint: 755px down
+@media screen and (max-width: 755px) {
+  .substitute_logo {
+    left: 24px;
+  }
+}
+
+// body{
+//   cursor: url('../src/assets/arrows/arrow-back-white.svg'), auto;
+// }
